@@ -865,112 +865,122 @@ nav {
     color: #f74b32;
     font-weight: 500; 
 }
-/* Container styling */
+
+/* ================= FOOTER LINKS ================= */
+
 .contacts {
-  display: flex;
-  /* Use space-between to push the tabs to the edges and even out gaps */
-  justify-content: space-between; 
-  align-items: flex-start;
-  
-  /* Remove the fixed gap and use a percentage width instead */
-  width: 90%; 
-  max-width: 1200px; /* Adjust this based on how wide you want the footer */
-  margin: 0 auto;    /* Centers the entire footer on the page */
-  
-  font-family: sans-serif;
-  padding: 70px 0;
+  display: grid;
+
+  /* column widths tuned to reference */
+  grid-template-columns:
+    160px   /* Get Started */
+    160px   /* Discover */
+    210px   /* Company */
+    220px   /* Legal */
+    160px;  /* Help */
+
+  /* IMPORTANT: smaller global gap */
+  column-gap: 80px;
+
+  width: 100%;
+  max-width: 1280px;
+  padding: 100px 40px 70px;
+  margin-left: 40px;
+  margin-top: 150px;
 }
 
-/* Header styling (The lighter pink text) */
+
+/* headings */
 .contacts .head {
   color: #FBA295;
+  font-size: 15px;
   font-weight: 400;
-  margin-bottom: 20px;
-  font-size: 16px;
+  margin-bottom: 22px;
 }
 
-/* Link/Item styling (The darker orange/red text) */
-.contacts h5:not(.head), 
+/* items */
+.contacts h5:not(.head),
 .contacts h4:not(.head) {
-  color: #f74b32;
-  font-weight: 400;
+  color: #F73B20;
   font-size: 15px;
-  margin: 12px 0; /* Controls vertical spacing between links */
-  cursor: pointer;
-}
-
-.underline {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-/* Link/Item styling */
-.contacts h5:not(.head), 
-.contacts h4:not(.head) {
-  color: #f74b32;
   font-weight: 400;
-  font-size: 15px;
   margin: 12px 0;
+  width: max-content;
   cursor: pointer;
-
-  /* This limits the hover area to the text width only */
-  display: block;
-  width: max-content; 
   position: relative;
 }
 
-/* Create the Underline */
+/* underline hover */
 .contacts h5:not(.head)::after,
 .contacts h4:not(.head)::after {
-  content: '';
+  content: "";
   position: absolute;
+  left: 0;
+  bottom: -1px;
   width: 100%;
   height: 1px;
-  bottom: -1px;
-  left: 0;
-  background-color: #f74b32;
-  
-  /* Initial state: invisible/shrunk */
+  background: #F73B20;
   transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.3s ease-out;
+  transform-origin: right;
+  transition: transform 0.25s ease;
 }
 
-/* Hover state */
 .contacts h5:not(.head):hover::after,
 .contacts h4:not(.head):hover::after {
   transform: scaleX(1);
-  transform-origin: bottom left;
+  transform-origin: left;
+}
+
+/* Increase ONLY the first two gaps */
+.contacts .tab1 {
+  margin-right: 80px;   /* Get Started → Discover */
+}
+
+.contacts .tab2 {
+  margin-right: 80px;   /* Discover → Company */
 }
 
 
-.awwa{
-  margin-bottom: 50px;
+
+.awwa {
+  width: 100%;
+  padding: 50px 40px;
+  border-top: 1px solid #FFE3DD;
+
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
 }
+
 /* Container for both buttons */
 .con1 {
   display: flex;
-  gap: 15px;
-  font-family: sans-serif; /* Use 'Product Sans' if you have it */
+  gap: 16px;
 }
-.con2{
+.con2 {
   display: flex;
-  height: 30px;
-  gap: 15px;
-  
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
 
+.con2 img {
+  height: 32px;
+  object-fit: contain;
 }
 .badge {
   display: flex;
   align-items: center;
+  gap: 12px;
+
+  padding: 12px 18px;
+  border: 1.5px solid #F73B20;
+  border-radius: 14px;
+
+  color: #F73B20;
   text-decoration: none;
-  border: 1.5px solid #F04E23; /* Match your image color */
-  border-radius: 12px; /* Smooth rounded corners */
-  padding: 6px 16px;
-  color: #F04E23; /* Text color matches border */
-  transition: all 0.2s ease;
 }
 
 .badge:hover {
@@ -980,8 +990,7 @@ nav {
 
 /* Icon Styling */
 .icon {
-  font-size: 32px; /* Makes the Remixicon larger */
-  margin-right: 10px;
+  font-size: 26px;
 }
 
 /* Text Container (Vertical Stack) */
